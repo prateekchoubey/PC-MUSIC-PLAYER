@@ -1,0 +1,950 @@
+*{
+    background-color: rgb(12,16,39);
+    color: white;
+}
+body{
+    overflow-x: hidden;
+}
+/* nav-bar starts */
+#nav-bar{
+   
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 15px;
+    padding: 10px;
+    /* border: 2px solid white; */
+}
+#whole_logo{
+    display: flex;
+    
+}
+#logo{
+margin-right: 5%;
+}
+
+/* Animation for logo */
+@keyframes rotating {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+#logo img{
+    width: 55px;
+    height: auto;
+    border-radius: 100%;
+    animation-name: rotating;
+	animation-timing-function: ease-in-out;
+	animation-duration: 2s;
+	animation-iteration-count: 1;
+}
+#name_of_player{
+    margin-top: 10px;
+    margin-left: -10px;
+    margin-right: 40px;
+    font-size: small;
+    font-weight: bolder;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+#favorite{
+margin-right: 55%;
+color: rgb(240,241,242);
+/* margin-top: 15px; */
+}
+
+#search{
+    display: flex;
+    /* justify-content: flex-start; */
+    /* border: 2px solid white; */
+    /* position: relative; */
+}
+#search input{
+    width: 100%;
+    border-radius: 18px;
+    padding: 1px;
+    text-align: center;
+    transition: all ease-in-out 0.1s;
+/* border: 2px solid white; */
+/* position: relative; */
+/* bottom: 5px; */
+margin-right: 50px;
+margin-top: 20px;
+margin-bottom: 5px;
+/* background-color: rgb(18,25,62); */
+}
+#mag-glass{
+    height: min-content;
+    position: relative;
+    top: 20px;
+    left: 20px;
+	transition: all ease-in-out 0.1s;
+    /* color: rgba(0, 0, 0, 0.5); */
+
+}
+#mag-glass i{
+    
+}
+#mic-icon{
+    height: min-content;
+    position: relative;
+    top: 20px;
+    right: 70px;
+    /* background-color: rgb(18,25,62); */
+}
+
+input:focus {
+	outline: none;
+}
+
+/* input{
+    outline: none;
+} */
+#notification{
+    margin-right: 5%;
+}
+#notification img{
+    width: 55px;
+    height: auto;
+}
+#profile{
+margin-top: 5px;
+
+}
+#profile img{
+    width: 40px;
+    height: auto;
+    border-radius: 100%;
+}
+
+/* Nav-bar completed */
+
+/* Main part starts */
+
+#main{
+    width: 100%;
+	padding: 0% 3%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	transition: all ease-in-out 1s;
+}
+
+/* left part of the page */
+
+#left{
+    height: 240vh;
+    margin: 15px;
+    padding: 10px;
+    /* overflow: scroll;
+	overflow-x: hidden; */
+}
+#top-left{
+/* border: 2px solid white; */
+width: 65%;
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+}
+#top-left img{
+    height: 30vh;
+    width: 40vh;
+    transition: all cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.3s;
+}
+#top-left img:nth-child(1){
+ 
+    z-index: 1;
+}
+#top-left img:nth-child(2){
+    z-index: 3;
+}
+#top-left img:nth-child(3){
+     z-index: 2;
+}
+#top-left img:hover{
+    box-shadow: 0px 0px 12px 0.1px black;
+    height: 35vh;
+    width: 45vh;
+    z-index: 4;
+}
+
+/* latest release */
+
+#latest-release{
+/* border: 2px solid white; */
+padding: 15px;
+width: 60%;
+margin: 20px 20px 20px 0px;
+text-transform: uppercase;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+/* position: relative; */
+}
+#latest-release-list{
+    padding: 50px;
+    /* border: 2px solid red; */
+    /* width: 100vh; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    transition: box-shadow ease-in-out 0.1s;
+}
+.card{
+    display: flex;
+    flex-direction: row;
+    width: 48vh;
+    height: 20vh;
+    margin-bottom: 5px;
+    border: 2px solid black;
+    box-shadow: 5px 0px 5px 0px black;
+    margin: 5px;
+}
+.card img{
+    margin-top:15px;
+    height: 10vh;
+    
+}
+.card img:hover{
+    box-shadow: 0px 0px 5px 1px black;
+    /* height: 12vh; */
+}
+.play-button {
+    background-color: transparent;
+    /* border: 2px solid white; */
+	width: 50%;
+	height: 50%;
+	position: relative;
+	top: -50%;
+    left: 20px;
+	color: rgba(255, 255, 255, 0);
+    opacity: 0;
+	/* note that its opacity will be 0 normally */
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 0px;
+	padding-top: 15%;
+	text-align: center;
+	/* z-index: 5; */
+	transition: all ease-in-out 0.1s;
+}
+.play-button:hover {
+    opacity: 1;
+	/* color: rgba(255, 255, 255, ); */
+	/* background-color: rgba(0, 0, 0, ); */
+}
+.song-description{
+    /* border: 2px solid red; */
+    width: 20vh;
+    height:13vh;
+}
+.song-description h5,p{
+    /* display: inline; */
+}
+#firstcard{
+
+    
+}
+.card>div{
+    margin: 10px;
+}
+#secondcard{
+    
+}
+#thirdcard{
+    
+}
+#fourthcard{
+
+}
+input[type="checkbox"] {
+	display: none;
+}
+.options {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap-reverse;
+	text-align: right;
+	margin-left: auto;
+	margin-right: 2%;
+	margin-top: 2%;
+}
+.latest-release-dropdown {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	opacity: 0;
+	width: 0px;
+	height: 0px;
+	top: 20px;
+	right: 0px;
+	overflow: hidden;
+	z-index: 2;
+	border: 1px solid black;
+	box-shadow: 0px 0px 2px 1px black;
+	transition: all ease-in-out 0.5s;
+    font-size: smaller;
+}
+/* to show a cursor when click on option button */
+.fa-ellipsis-h {
+	cursor: pointer;
+}
+/* dropdown opens when clicked */
+input[type="checkbox"]:checked ~ .latest-release-dropdown {
+	width: max-content;
+	height: auto;
+	opacity: 1;
+	padding: 5px;
+}
+
+
+/* Latest release ends here */
+
+/* Popular Artists Section  */
+
+
+/* whole popular artist section */
+.popular-artists{
+/* border: 2px solid white; */
+width: 65%;
+padding: 10px;
+}
+.popular-artists h1{
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    margin-left: 20px;
+}
+/* content of section */
+.popular-artist-content{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: center;
+   flex-wrap: wrap;
+   text-align: center;
+}
+/* image of the artists */
+.popular-artists div a img{
+width: 150px;
+border-radius: 100%;
+}
+
+.popular-artists>div{
+    margin: 5px;
+	/* text-align: center; */
+}
+
+/* container of each artist with img and details */
+
+.popular-artist-content > a > div{
+    /* box-shadow: 5px 0px 5px 0px black; */
+    /* border: 2px solid red; */
+    /* position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center; */
+    
+}
+/* play button */
+.popular-artist-content > a > div > div{
+    /* border: 2px solid red; */
+    position: relative;
+    bottom: 40px;
+    left: 25px;
+    background-color: transparent;
+    width: 15px;
+    border-radius: 50%;
+    opacity: 0.2;
+    transition: opacity ease-in-out 0.1s; 
+    zoom: 250%;
+}
+/* hover on play button */
+.popular-artist-content a div div:hover {
+	opacity: 1;
+}
+/* name of thr artists */
+.popular-artist-content a div p{
+    text-transform: uppercase;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    /* border: 2px solid red; */
+    margin-top: -40px;
+}
+
+
+/* Theme Section */
+
+.music-themes{
+    background-image: var(--music-themes-background-image);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 2px solid white; */
+    width: 65%;
+    height: auto;
+    margin-top: 3vh;
+}
+.stations {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-right: 5px;
+    margin-left: 20px;
+    /* border: 2px solid red; */
+}
+
+#div1 {
+	width: 11.5vw;
+	height: 8vw;
+	background-color: orangered;
+    /* border: 2px solid white; */
+}
+#div2 {
+	position: relative;
+	top: -1.2vw;
+	left: 0.7vw;
+	width: 10vw;
+	height: 10vw;
+	background-color: white;
+    /* border: 2px solid white; */
+}
+#div3 {
+	position: relative;
+	top: -1.2vw;
+	left: 0.92vw;
+	width: 8vw;
+	height: 12vw;
+	background-color: green;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    /* border: 2px solid green; */
+}
+#div3 img{
+    width: 12vh;
+    height: 12vh;
+    position: relative;
+    top: 15px;
+    background: none;
+    margin: 5px;
+    
+
+}
+#div3 p{
+    margin-bottom: 20px;
+    background:none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size:12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+
+}
+
+.music-themes div img{
+    width: 16vh;
+    height: 16vh;
+}
+
+/* Main types of themes */
+.theme-main{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    /* border: 2px solid white; */
+}
+.theme-content{
+    margin-top: 5vh;
+    /* border: 2px solid red; */
+}
+.theme-content img{
+border-radius: 100%;
+margin: 0.5vh;
+}
+.theme-content p{
+position: relative;
+top: -12vh;
+right: -6vh;
+background: none;
+color: black;
+width: 8vh;
+
+background-image: linear-gradient(
+		0deg,
+		rgb(201, 200, 185) -66%,
+		rgba(0, 0, 0, 0)
+	);
+	transition: background-image 0.3s;
+}
+
+/* hovering effects on the contents of the divs inside the themes container */
+.theme-content p:hover {
+	background-image: linear-gradient(
+		0deg,
+		rgb(255, 50, 10) -66%,
+		rgba(0, 0, 0, 0)
+	);
+}
+
+/* music themes -2 */
+/* music themes has two parts the class with name just "music themes, is the uppper section with the gradient bakcground" */
+/* this is the second section of music themes */
+.music-themes-2 {
+    /* border: 2px solid white; */
+	height: auto;
+	width: 100%;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+    margin-right: 1vh;
+}
+/* this outer div contains the inner div and the image and text */
+.outer-div {
+	width: 19.5vw;
+	height: 13vw;
+	overflow: hidden;
+	min-width: 123px;
+	min-height: 82px;
+	margin: 5px;
+	cursor: pointer;
+}
+/* inner div portion */
+.inner-div {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	background-position: center;
+	background-size: cover;
+	transition: all ease-in-out 0.3s;
+}
+/* divs corresponding to each of the 3 sub sections in the themes section */
+/* party */
+.music-themes-2 .outer-div:nth-child(1) .inner-div {
+	background-image: url("media/music\ themes\ 2/party.jpg");
+}
+/* electronic */
+.music-themes-2 .outer-div:nth-child(2) .inner-div {
+	background-image: url("media/music\ themes\ 2/electronic.jpg");
+}
+/* road */
+.music-themes-2 .outer-div:nth-child(3) .inner-div {
+	background-image: url("media/music\ themes\ 2/road.jpg");
+}
+/* hovering actions: the text should be scaled down on hover and the background image should be scaled up at the same time gap */
+.outer-div:hover .inner-div {
+	transform: scale(1.3);
+}
+.outer-div .inner-div span {
+	transform: scale(1);
+	transition: all ease-in-out 0.3s;
+}
+.outer-div:hover .inner-div span {
+	transform: scale(0.75);
+}
+/* adjusting inner div properties */
+.inner-div {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.outer-div .inner-div span {
+	color: lightgray;
+	font-size: 2vw;
+    text-transform: capitalize;
+    background: none;
+}
+
+
+/* language wise */
+/* language sections */
+.language {
+	position: relative;
+	top: 1vw;
+	height: auto;
+	width: 65%;
+	box-sizing: border-box;
+	margin: 3vw 0px;
+    /* border: 2px solid white; */
+}
+/* language content container */
+.language-content {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+	flex-wrap: wrap;
+	padding: 0px 2px;
+}
+/* image in language content */
+.language-content div img {
+	width: 10vw;
+	min-width: 60px;
+	height: 10vw;
+	min-height: 60px;
+	transition: box-shadow ease-in-out 0.1s;
+}
+/* hovering effects on language content items */
+.language-content div img:hover {
+	box-shadow: 0px 0px 10px 1px white;
+}
+/* items in language content */
+.language-content div {
+	margin: 2vw 0px;
+	width: 10.2vw;
+	min-width: 60px;
+}
+/* properties for release date and name of the song */
+.language-content div p:nth-child(2n) {
+	width: 100%;
+	word-wrap: break-word;
+}
+.language-content div p:nth-child(2n + 1) {
+	font-size: 12px;
+	font-weight: lighter;
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+
+
+/* section 2 starts here */
+
+/* more button */
+label[for="more"] {
+	/* display: none; */
+	position: absolute;
+	right: 1.65%;
+	top: 14.2%;
+	padding: 5px;
+	z-index: 4;
+	width: 70px;
+	font-size: 20px;
+	height: 25px;
+	text-align: center;
+	box-shadow: 0px 0px 5px 2px black;
+	background-image: linear-gradient(45deg, red , blue );
+}
+/* when the checkbox corresponding to the "more" button is checked, then the section becomes visible */
+/* but at a normal resolution, its display will be none */
+label[for="more"]:checked ~ input {
+	display: none;
+}
+/* ASIDE SECTION 2 */
+#right{
+    width: 100%;
+    position: relative;
+    bottom: 245vh;
+    left: 160vh;
+}
+.heading {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: baseline;
+	margin-bottom: 12%; 
+}
+/* heading for the second  aside section */
+.heading h4 a {
+	text-decoration: none;
+	color: greenyellow;
+}
+/* these are the properties for the queue options box. the queue options box will be visible when one clicks on the queue button */
+.queue-options {
+	position: fixed;
+	right: 4%;
+	top: 14%;
+	background-color: #f8f9fa;
+	width: 10%;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 1%;
+	box-sizing: border-box;
+	overflow: hidden;
+	z-index: 2; /* to cover the heart icon */
+	opacity: 0;
+	transform: scale(0);
+	transition: all ease-in-out 0.25s;
+}
+/* when the queue option box becomes target */
+#queue-option-box:target {
+	opacity: 1;
+	transform: scale(1);
+}
+.queue-options {
+	color: black;
+}
+.queue-options p {
+	text-align: center;
+}
+.queue-options p a {
+	text-decoration: none;
+}
+/* horizontal line in queue options box */
+hr {
+	width: 90%;
+	color: black;
+}
+
+/* playlist content */
+.playlist-content {
+    /* border: 2px solid white; */
+	width: 23%;
+	height: 75vh;
+	display: flex;
+	flex-direction: column;
+	overflow: scroll;
+	cursor: pointer;
+
+}
+/* playlist content container scroll bar */
+.playlist-content::-webkit-scrollbar {
+	display: none;
+}
+/* left content contains the image, index and name of the song */
+.left-content {
+	display: flex;
+	height: 100%;
+	width: 70%;
+	flex-direction: row;
+	flex-wrap: no-wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+/* name and writer of song  */
+.left-content > div:nth-child(3) {
+	margin-left: 12px;
+	width: 50%;
+	word-wrap: break-word;
+}
+/* right content contains the heart icon */
+.right-content {
+    /* border: 2px solid white; */
+	position: relative;
+	bottom: 62%;
+	left: 90%;
+	width: min-content;
+	height: 20px;
+	color: white;
+	font-size: 18px;
+}
+
+/* .right-content i {
+	transition: all ease-in-out 0.1s;
+}
+.right-content i:hover {
+	color: red;
+} */
+  
+/* class for a partilcular item in playlist */
+.playlist-item {
+	width: 90%;
+	height: auto;
+	padding: 0px 1%;
+	box-sizing: border-box;
+	margin: 1%;
+	/* transition: all ease-in-out 0.1s; */
+}
+/* animation for glowing heart in each of the playlist items */
+
+/* @keyframes glowing-heart {
+	0% {
+		color: yellow;
+	}
+	50% {
+		color: orangered;
+	}
+	100% {
+		color: red;
+	}
+} */
+
+/* hover effect on heart */
+/* .playlist-item:hover .fa-heart {
+	animation-name: glowing-heart;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+	animation-duration: 1s;
+} */
+/* playlist items hovering effect */
+.playlist-item:hover {
+	box-shadow: 0px 0px 2px 1px white;
+}
+/* playlist item image */
+.playlist-item img {
+	width: 80px;
+	height: 80px;
+}
+/* this will cover the playlist image. this can be called as a container for half of the items in the left part */
+.coverer {
+	width: 80px;
+	height: 80px;
+}
+/* ////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* Footer section starts here*/
+/* this is the container for the whole footer */
+footer {
+    border: 2px solid grey;
+	position: absolute;
+	bottom: 1px;
+	width: 100%;
+	/* height: 60px; */
+	background-color: #282828;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-content: center;
+	flex-wrap: nowrap;
+	padding: 0px 3%;
+	box-sizing: border-box;
+	z-index: 6;
+    background-color:#0C1027;
+    position: sticky;
+}
+/* footer is divided into 3 parts */
+/* 1. first part of the footer */
+.active-song-description {
+	/* border:1px solid white; */
+	height: 90%;
+	width: 25%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
+/* the current song which is being played, this is the image container for that. */
+#song-image {
+	width: 50px;
+	height: 50px;
+	min-width: 50px;
+	min-height: 50px;
+}
+/* current song image */
+#song-image img {
+	width: 100%;
+	height: 100%;
+}
+/* heart and ban icon */
+.heart-and-ban-icon {
+	height: 100%;
+	padding-top: 4%;
+}
+/* song decscription */
+.song-desc {
+	margin-right: 1%;
+	margin-left: 1%;
+}
+/* song name */
+.song-desc div:nth-child(1) {
+	font-size: 14px;
+}
+/* song author */
+.song-desc div:nth-child(2) {
+	font-size: 12px;
+}
+
+/* 2. Second part of the footer*/
+.player {
+	width: 45%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: nowrap;
+}
+/* controls is the container for all the center controls of the player */
+.controls {
+	width: 40%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 20px;
+}
+/* this is the song-duration slider */
+#slider {
+	width: 100%;
+	font-size: 12px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+	margin-top: 5px;
+}
+/* ////////// */
+.time {
+	margin: 0px 10px;
+}
+
+/* adjusting the slider for better visuals */
+.slidecontainer {
+	width: 100%;
+}
+/* for audio and main center player */
+.slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 5px;
+	background: #d3d3d3;
+	outline: none;
+	opacity: 0.5;
+	-webkit-transition: 0.2s;
+	transition: opacity 0.2s;
+}
+/* hover effect for the slider */
+.slider:hover {
+	opacity: 1;
+}
+/* these are for adjusting the dimensions and default styling of the long-slider */
+.slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	appearance: none;
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	background: #007bff;
+	cursor: pointer;
+}
+/* this is the circular thumb, which can be moved across the div */
+/* .slider::-moz-range-thumb {
+	width: 25px;
+	height: 25px;
+	background: #4caf50;
+	cursor: pointer;
+} */
+
+/* third part of the footer */
+/* this contains the extra icons and slider for volume */
+/* this is also a container */
+.extras {
+	width: 20%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
+}
